@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Countdown to 3 May 2026</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f2f2f2;
+      text-align: center;
+      padding: 50px;
+    }
+    h1 {
+      font-size: 2em;
+    }
+    #countdown {
+      font-size: 2em;
+      margin-top: 20px;
+      color: #333;
+    }
+    img {
+      max-width: 300px;
+      height: auto;
+      border-radius: 10px;
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <img src="https://cdn0-production-images-kly.akamaized.net/fdzFmnrjUqkkiP1yloyxxHYeSAE=/800x1066/smart/filters:quality(75):strip_icc():format(webp)/kly-media-production/medias/5274971/original/021944900_1751857839-my_ch.jpg" alt="Countdown Image">
+
+  <h1>Countdown to 3 May 2026: MCR in Jakarta</h1>
+  <div id="countdown">Loading...</div>
+
+  <script>
+    const countdownEl = document.getElementById('countdown');
+    const targetDate = new Date('May 3, 2026 00:00:00').getTime();
+
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const distance = targetDate - now;
+
+      if (distance < 0) {
+        countdownEl.innerHTML = "🎉 The date has arrived!";
+        clearInterval(interval);
+        return;
+      }
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      countdownEl.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+    }
+
+    const interval = setInterval(updateCountdown, 1000);
+    updateCountdown();
+  </script>
+
+</body>
+</html>
